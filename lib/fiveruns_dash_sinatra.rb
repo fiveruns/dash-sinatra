@@ -11,3 +11,23 @@ Fiveruns::Dash.register_recipe :sinatra, :url => 'http://dash.fiveruns.com' do |
   
   recipe.time :render_time, :method => 'Sinatra::Application#render'
 end
+
+module Fiveruns
+  
+  module Dash
+    
+    module Sinatra
+      
+      def self.start(token)
+        return if Fiveruns::Dash.session.reporter.started?
+        Fiveruns::Dash.start(:app => token) do |config|
+          config.add_recipe :ruby
+          config.add_recipe :sinatra
+        end
+      end
+      
+    end
+    
+  end
+  
+end
