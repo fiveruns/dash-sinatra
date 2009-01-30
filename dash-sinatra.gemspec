@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = %q{2009-01-30}
   s.description = %q{Provides an API to send metrics from Sinatra applications to the FiveRuns Dash service}
   s.email = %q{dev@fiveruns.com}
-  s.files = ["README.rdoc", "Rakefile", "version.yml"]
+  s.files = ["README.rdoc", "Rakefile", "version.yml", "lib/fiveruns_dash_sinatra.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/fiveruns/dash-sinatra}
   s.rdoc_options = ["--inline-source", "--charset=UTF-8"]
