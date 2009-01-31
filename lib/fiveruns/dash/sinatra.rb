@@ -17,6 +17,7 @@ module Fiveruns::Dash::Sinatra
     Fiveruns::Dash.start(:app => token) do |config|
       config.add_recipe :sinatra
       config.add_recipe :ruby
+      yield config if block_given?
     end
   end
   
