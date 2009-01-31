@@ -12,9 +12,15 @@ This library is released as a gem from the official repository at http://github.
 
 == Usage
 
-First you'll need a token for your Sinatra application. Create a new Ruby app in Dash and then copy the token. Now, in your configure block, start up Dash:
+First you'll need a token for your Sinatra application. Create a new Ruby app in Dash (http://dash.fiveruns.com) and copy the token. 
 
-  Fiveruns::Dash::Sinatra.start('some_dash_token')
+Make sure you require the Dash Sinatra recipe:
+
+  require 'fiveruns/dash/sinatra'
+
+Now, in your configure block, start up Dash:
+
+  Fiveruns::Dash::Sinatra.start('the-dash-token-you-copied')
   
 Fire up your Sinatra app; you should see it send some environmental information to Dash. Periodically, a background thread will upload your metrics to Dash.
 
