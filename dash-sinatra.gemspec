@@ -2,14 +2,14 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dash-sinatra}
-  s.version = "0.7.4"
+  s.version = "0.7.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["FiveRuns Development Team"]
   s.date = %q{2009-01-30}
   s.description = %q{Provides an API to send metrics from Sinatra applications to the FiveRuns Dash service}
   s.email = %q{dev@fiveruns.com}
-  s.files = ["README.rdoc", "Rakefile", "version.yml", "lib/fiveruns_dash_sinatra.rb"]
+  s.files = ["README.rdoc", "Rakefile", "version.yml", "lib/fiveruns", "lib/fiveruns/dash", "lib/fiveruns/dash/sinatra.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/fiveruns/dash-sinatra}
   s.rdoc_options = ["--inline-source", "--charset=UTF-8"]
