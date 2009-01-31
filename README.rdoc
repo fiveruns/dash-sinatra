@@ -12,7 +12,15 @@ This library is released as a gem from the official repository at http://github.
 
 == Usage
 
-See the Ruby Language Guide http://dash.fiveruns.com/help/ruby.html for information on how to use this library. 
+First you'll need a token for your Sinatra application. Create a new Ruby app in Dash and then copy the token. Now, in your configure block, start up Dash:
+
+  Fiveruns::Dash::Sinatra.start('some_dash_token')
+  
+Fire up your Sinatra app; you should see it send some environmental information to Dash. Periodically, a background thread will upload your metrics to Dash.
+
+== Caveats
+
+Sinatra adds a route for serving static files from your +public+ folder. If you run Dash in development, these requests will color your requests and response time statistics. If you are using Nginx or Apache to public in your production app, your metrics will be fine.
 
 == Authors
 
