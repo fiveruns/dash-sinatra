@@ -8,6 +8,14 @@ Fiveruns::Dash.register_recipe :sinatra, :url => 'http://dash.fiveruns.com' do |
   recipe.counter :requests, :incremented_by => 'Sinatra::Application#dispatch!'
   recipe.time :response_time, :method => 'Sinatra::Application#dispatch!'
   recipe.time :render_time, :method => 'Sinatra::Application#render'
+  
+  recipe.add_exceptions_from 'Sinatra::Application#dispatch!' do |_, app|
+    env = app.request.env.dup
+    %w{rack.input rack.errors rack.request.form_input}.each do |k|
+       env.delete(k)
+    end
+    {:environment => env.to_json}
+  end
 end
 
 module Fiveruns::Dash::Sinatra
