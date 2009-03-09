@@ -5,11 +5,11 @@ Fiveruns::Dash.logger.level = Logger::INFO
 Fiveruns::Dash.register_recipe :sinatra, :url => 'http://dash.fiveruns.com' do |recipe|
   # NOTE: Captures static requests in addition to Sinatra app requests. Can't
   #       find a good way around that.
-  recipe.counter :requests, :incremented_by => 'Sinatra::Application#dispatch!'
-  recipe.time :response_time, :method => 'Sinatra::Application#dispatch!'
-  recipe.time :render_time, :method => 'Sinatra::Application#render'
+  recipe.counter :requests, :incremented_by => 'Sinatra::Base#dispatch!'
+  recipe.time :response_time, :method => 'Sinatra::Base#dispatch!'
+  recipe.time :render_time, :method => 'Sinatra::Base#render'
   
-  recipe.add_exceptions_from 'Sinatra::Application#dispatch!' do |_, app|
+  recipe.add_exceptions_from 'Sinatra::Base#dispatch!' do |_, app|
     env = app.request.env.dup
     %w{rack.input rack.errors rack.request.form_input}.each do |k|
        env.delete(k)
